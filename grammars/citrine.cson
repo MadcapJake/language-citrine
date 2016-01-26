@@ -76,7 +76,7 @@
     'captures':
       0:
         'name': 'punctuation.definition.closure.citrine'
-    'name': 'meta.closure.params.citrine'
+    'name': 'meta.closure.with-params.citrine'
     'patterns': [
       {
         'match': '((?:\\w+\\s+)*)(\\|)'
