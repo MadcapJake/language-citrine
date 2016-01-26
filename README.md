@@ -1,3 +1,3 @@
-# PackageName language package
+# Citrine language package
 
-A short description of your language package.
+A package for highlights, snippets, and indentation support in Atom.
