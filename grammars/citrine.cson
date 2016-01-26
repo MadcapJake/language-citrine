@@ -42,9 +42,9 @@
     'name': 'keyword.control.return.citrine'
   }
   {
-    'match': '(?x)(?<=\\w|\\})(?<!my)\\s+(
+    'match': '(?x)(?<=\\w|\\}|\\\')(?<!my)\\s+(
       [^\\s\\d\\(\\)\\{\\}] | (?:<=|>=|==|!=|&&|\\|\\||<-)
-    )\\s+(?=\\w|\\{)'
+    )\\s+(?=\\w|\\{|\\\')'
     'name': 'keyword.operator.message.binary.citrine'
   }
   {
