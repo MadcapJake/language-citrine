@@ -25,11 +25,92 @@
     ]
   }
   {
-    'match': '(?<!:)\\s*[a-zA-Z_]\\w+(?=\\s|\\.)'
-    'name': 'support.function.message.unary.citrine'
+    'match': '(?<=\\w|\\}|,)(?<!my)\\s+(`)?([a-zA-Z_]\\w+)(?=\\s|\\.|\\))'
+    'name': 'meta.message.unary.citrine'
+    'captures':
+      1:
+        'name': 'keyword.control.method.override.citrine'
+      2:
+        'name': 'support.function.message.unary.citrine'
   }
   {
-    'match': '(?<=\\s)[^\\s\\d](?=\\s)'
+    'match': '(?<!:)\\s*[a-zA-Z_]\\w+(?=\\:)'
+    'name': 'support.function.any-method.message.citrine'
+  }
+  {
+    'match': '\\^'
+    'name': 'keyword.control.return.citrine'
+  }
+  {
+    'match': '(?x)(?<=\\w|\\})(?<!my)\\s+(
+      [^\\s\\d\\(\\)\\{\\}] | (?:<=|>=|==|!=|&&|\\|\\||<-)
+    )\\s+(?=\\w|\\{)'
     'name': 'keyword.operator.message.binary.citrine'
+  }
+  {
+    'begin': '\''
+    'end': '\''
+    'name': 'string.quoted.citrine'
+  }
+  {
+    'begin': '(\\{)(\\\\)'
+    'beginCaptures':
+      1:
+        'name': 'punctuation.definition.closure.citrine'
+      2:
+        'name': 'punctuation.definition.parameters.citrine'
+    'end': '\\}'
+    'captures':
+      0:
+        'name': 'punctuation.definition.closure.citrine'
+    'name': 'meta.closure.citrine'
+    'patterns': [
+      {
+        'include': '$self'
+      }
+    ]
+  }
+  {
+    'begin': '\\{'
+    'end': '\\}'
+    'captures':
+      0:
+        'name': 'punctuation.definition.closure.citrine'
+    'name': 'meta.closure.params.citrine'
+    'patterns': [
+      {
+        'match': '((?:\\w+\\s+)*)(\\|)'
+        'captures':
+          1:
+            'name': 'variable.parameter.function.citrine'
+          2:
+            'name': 'punctuation.definition.parameters.citrine'
+      }
+      {
+        'include': '$self'
+      }
+    ]
+  }
+  {
+    'match': '(?x)\\b(
+      Object|Nil|Boolean|Number|Math|String|Code|Array|Map|File|Pen|
+      Command|Dice|Coin|Clock|Shell|Broom
+    )\\b'
+    'name': 'support.class.citrine'
+  }
+  {
+    'match': '\\b(my|me)\\b'
+    'name': 'variable.language.citrine'
+  }
+  {
+    'match': '(var\\s+)?(\\w+)\\s+(:=)'
+    'name': 'meta.assignment.citrine'
+    'captures':
+      1:
+        'name': 'storage.modifier.variable.citrine'
+      2:
+        'name': 'entity.name.assignee.citrine'
+      3:
+        'name': 'keyword.control.assignment.citrine'
   }
 ]

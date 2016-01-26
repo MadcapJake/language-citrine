@@ -10,3 +10,83 @@
 3 + 7.
 
 3 between: 1 and: 5.
+
+Pen write: 'Hello world!'.
+
+Pen write: 'Hello', write: 'world!'.
+
+3 times: {\ Pen write: 'Ho!'. }.
+
+( money < price ) ifTrue: {\ Pen write: 'not enough money!'. }.
+
+myObject := Object new.
+
+myObject on: 'getBeverage' do: {\
+	^ 'Coffee'.
+}.
+
+myObject on: 'getBeverageFor:' do: { forPerson |
+	(forPerson = 'Picard') ifTrue: {\
+		^ 'Earl Grey'.
+	}.
+	^ 'Coffee'.
+}.
+
+{\ ^9. } run. #yields 9
+{ a | ^ a * a. } applyTo: 6. #yields 36
+{ a b | ^ (a + b). } applyTo: 3 and: 4. #yields 7
+{ a b c | ^ (a + b + c). } applyTo: 3 and: 4 and: 1. #yields 8
+
+var a := 1.
+
+{\ var q := 1. {\ Pen write: q. } run. } run. #prints 1.
+{\ var q := 1. {\ q := 2. Pen write: q. } run. } run. #prints 2.
+{\ var q := 1. {\ x := 2. Pen write: x. } run. } run. #Not allowed x is not defined
+f := {\ q := 2. }. {\ var q := 1. f run. Pen write: q. } run. #prints 2
+
+multiplier := { m | ^ { x | ^(my f * x). } set: 'f' value: m. }.
+double := multiplier applyTo: 2.
+q := double applyTo: 9. #yields 18
+
+addition := { x |
+	var f := { y | ^ (my x + y). } set: 'x' value: x.
+	^ f.
+}.
+mapper := { array func |
+	var mapping := { i | my q put: (my f applyTo: (my q at: i)) at: i. }
+	set: 'q' value: array,
+	set: 'f' value: func.
+	(array count) times: mapping.
+}.
+a := Array <- 1; 2; 3.
+mapper applyTo: a and: (addition applyTo: 100). #101 102 103
+
+Animal := Object new.
+Animal on: 'eat' do: {\
+	Pen write: 'munch! munch!'.
+}.
+dog := Animal new.
+dog eat.
+
+dog on: 'eat' do: {\
+	me `eat. #Animal will respond
+}.
+
+#let's extend the number object with a unicode times equivalent!
+Number on: '×' do: { b |
+	me times: b.
+}.
+7 × { i | Pen write: i. }.
+
+{\ #throw an exception:
+	thisBlock error: 'oops!'.
+} catch: { err |
+	Pen write: err.
+}, run.
+
+echo := Object new.
+echo on: 'respondTo:' do: {
+	sound |
+	2 times: {\ Pen write: sound. }.
+}.
+echo ho!. #prints ho!ho!
