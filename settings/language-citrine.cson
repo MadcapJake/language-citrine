@@ -3,4 +3,5 @@
 
 '.source.citrine':
   'editor':
-    'commentStart': '@@ '
+    'commentStart': '# '
+    'nonWordCharacters': '/\\()"\':,.;<>~!#^&*|+=[]{}`?-'
