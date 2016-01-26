@@ -1,13 +1,14 @@
 {
   "name": "language-citrine",
   "version": "0.0.0",
-  "description": "A short description of your language package",
+  "description": "Citrine language support in Atom",
   "keywords": [
     "language",
-    "grammar"
+    "grammar",
+    "citrine"
   ],
-  "repository": "https://github.com/atom/language-citrine",
-  "license": "MIT",
+  "repository": "https://github.com/madcapjake/language-citrine",
+  "license": "BSD",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   }
