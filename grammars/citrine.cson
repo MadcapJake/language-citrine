@@ -100,7 +100,7 @@
   }
   {
     'match': '\\b(my|me)\\b'
-    'name': 'variable.language.citrine'
+    'name': 'keyword.other.unit.citrine'
   }
   {
     'match': '(var\\s+)?(\\w+)\\s+(:=)'
