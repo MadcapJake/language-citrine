@@ -1,3 +1,3 @@
 # Citrine language package
 
-A package for highlights, snippets, and indentation support in Atom.
+A package for [Citrine](http://citrine-lang.org/) highlights, snippets, and auto-indentation in Atom.
