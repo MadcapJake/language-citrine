@@ -2,13 +2,34 @@
 #   - http://manual.macromates.com/en/language_grammars
 
 'scopeName': 'source.citrine'
-'name': 'PackageName'
+'name': 'Citrine'
 'fileTypes': [
-  'extension'
+  'ctr'
 ]
 'patterns': [
   {
-    'match': '^\\s*@@.*$'
-    'name': 'comment'
+    'begin': '(^[ \\t]+)?(?=#)'
+    'beginCaptures':
+      '1':
+        'name': 'punctuation.whitespace.comment.leading.citrine'
+    'end': '(?!\\G)'
+    'patterns': [
+      {
+        'begin': '#'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.comment.citrine'
+        'end': '\\n'
+        'name': 'comment.line.citrine'
+      }
+    ]
+  }
+  {
+    'match': '(?<!:)\\s*[a-zA-Z_]\\w+(?=\\s|\\.)'
+    'name': 'support.function.message.unary.citrine'
+  }
+  {
+    'match': '(?<=\\s)[^\\s\\d](?=\\s)'
+    'name': 'keyword.operator.message.binary.citrine'
   }
 ]
