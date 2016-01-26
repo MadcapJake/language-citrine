@@ -2,6 +2,15 @@
 # https://github.com/atom/language-gfm/blob/master/snippets/gfm.cson
 
 '.source.citrine':
-  'Method documentation':
-    'prefix': 'doc'
-    'body': '@@ ${1:method} - ${2:description}'
+  'closure-no-params-single':
+    'prefix': '{\\'
+    'body': '{\\\\ $1 '
+  'closure-no-params-multi':
+    'prefix': '{\\\\'
+    'body': '{\\\\\\\n\\\t$1\\\n'
+  'closure-params-single':
+    'prefix': '{\|'
+    'body': '{ $1 | $2 '
+  'closure-params-multi':
+    'prefix': '{\|\|'
+    'body': '{ $1 |\\\n\\\t$2\\\n'
