@@ -1,0 +1,12 @@
+# All code taken from citrine-lang.org
+
+# Hello this line is a comment, because
+# it starts with a #.
+
+3 factorial.
+
+3 factorial factorial.
+
+3 + 7.
+
+3 between: 1 and: 5.
